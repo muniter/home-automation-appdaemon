@@ -120,7 +120,17 @@ uv sync
 uv run pyright
 ```
 
-See `AGENTS.md` for debugging tips and API reference.
+### Teaching the Agent About Your Setup
+
+One powerful trick: give your LLM access to the [Home Assistant CLI](https://www.home-assistant.io/common-tasks/os/#home-assistant-via-the-command-line) (`hass-cli`). The agent can then query your actual Home Assistant instance to:
+
+- **Discover entities** — `hass-cli state list 'binary_sensor.kitchen*'`
+- **Check current state** — `hass-cli state get binary_sensor.front_door`
+- **Test services** — `hass-cli service call light.turn_on --arguments entity_id=light.kitchen`
+
+This lets the LLM propose automations based on what's *actually* in your setup, not just guessing entity names. You describe what you want ("notify me when the garage door is left open"), and the agent can find the right sensors, check their current state, and write code that uses the correct entity IDs.
+
+See `AGENTS.md` for more CLI examples and debugging tips.
 
 ## License
 
