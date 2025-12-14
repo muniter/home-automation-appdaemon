@@ -89,19 +89,34 @@ rsync -av --delete \
 
 ## Setup
 
-1. Install the [AppDaemon add-on](https://github.com/hassio-addons/addon-appdaemon) in Home Assistant
-2. Clone this repo
-3. Update `appdaemon.yaml` with your coordinates and timezone
-4. Customize entity IDs in the apps to match your setup
-5. Deploy with rsync
+### Home Assistant
 
-## Development
+AppDaemon runs as a [Home Assistant add-on](https://appdaemon.readthedocs.io/en/latest/INSTALL.html). To install:
+
+1. In Home Assistant, go to **Settings** → **Add-ons** → **Add-on Store**
+2. Search for "AppDaemon" and install it
+3. Configure the add-on with your coordinates and timezone
+4. Start the add-on
+
+The apps in this repo get deployed to the add-on via rsync (see Deployment above).
+
+### Local Development
+
+The `pyproject.toml` and `uv sync` setup is for **local development only** — AppDaemon itself runs inside the Home Assistant add-on, not on your development machine.
+
+Why bother with a local virtualenv? When using LLM coding tools like [Claude Code](https://docs.anthropic.com/en/docs/claude-code) or similar, having AppDaemon installed locally gives you:
+
+- **Type checking** — Pyright catches errors before deployment
+- **IDE autocomplete** — Your editor knows about `self.listen_state()`, `self.call_service()`, etc.
+- **Linting** — The language server can validate your code
+
+Without this, your LLM is flying blind — it can still generate code, but you won't catch typos or API misuse until runtime.
 
 ```bash
-# Create virtualenv for IDE support
+# One-time setup for IDE support
 uv sync
 
-# Type checking
+# Type check before deploying
 uv run pyright
 ```
 
