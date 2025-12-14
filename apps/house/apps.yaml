@@ -1,0 +1,42 @@
+---
+# House-wide automations
+
+house_occupancy:
+  module: house.occupancy
+  class: HouseOccupancy
+
+house_security:
+  module: house.security
+  class: HouseSecurity
+
+welcome_home:
+  module: house.welcome_home
+  class: WelcomeHome
+
+arrival_notifier:
+  module: house.arrival_notifier
+  class: ArrivalNotifier
+
+left_on_notifier:
+  module: house.left_on_notifier
+  class: LeftOnNotifier
+
+low_battery_notifier:
+  module: house.low_battery_notifier
+  class: LowBatteryNotifier
+
+outside_lights:
+  module: house.outside_lights
+  class: OutsideLights
+
+buttons:
+  module: house.buttons
+  class: Buttons
+
+vacation_mode:
+  module: house.vacation_mode
+  class: VacationMode
+
+vacation_lights:
+  module: house.vacation_lights
+  class: VacationLights

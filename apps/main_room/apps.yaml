@@ -1,0 +1,6 @@
+---
+# Main room automations
+
+closet_motion_light:
+  module: main_room.closet_light
+  class: ClosetMotionLight

@@ -1,0 +1,17 @@
+[project]
+name = "appdaemon-apps"
+version = "0.1.0"
+description = "Home Assistant AppDaemon automations"
+requires-python = ">=3.12"
+dependencies = ["appdaemon>=4.5.12"]
+
+[tool.uv]
+dev-dependencies = ["pyright"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "basic"
+venvPath = "."
+venv = ".venv"
+# Async callback typing is imperfect in appdaemon
+reportArgumentType = "warning"

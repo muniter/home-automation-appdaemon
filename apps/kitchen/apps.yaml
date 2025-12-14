@@ -1,0 +1,6 @@
+---
+# Kitchen automations
+
+kitchen_motion_light:
+  module: kitchen.kitchen_light
+  class: KitchenMotionLight
