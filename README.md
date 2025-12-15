@@ -12,7 +12,7 @@ AppDaemon is pure Python, which means:
 - Easy to test, refactor, and version control
 - No JSON/YAML wrestling
 
-Read the full blog post: [Home Automation Finally Clicked — Thanks to LLMs](https://javierlopez.dev/blog/home-automation-with-llms/)
+Read the full blog post: [Home Automation, Finally Painless with LLMs](https://muniter.dev/blog/home-automation-with-llms/)
 
 ## Structure
 
@@ -91,7 +91,7 @@ rsync -av --delete \
 
 ### Home Assistant
 
-AppDaemon runs as a [Home Assistant add-on](https://appdaemon.readthedocs.io/en/latest/INSTALL.html). To install:
+AppDaemon runs as a [Home Assistant Community Add-on](https://github.com/hassio-addons/addon-appdaemon). To install:
 
 1. In Home Assistant, go to **Settings** → **Add-ons** → **Add-on Store**
 2. Search for "AppDaemon" and install it
